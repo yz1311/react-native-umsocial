@@ -8,6 +8,18 @@
 邮箱：lhs168[at]gmail.com  
 说明：此模块是根据[react-native-umshare](https://github.com/a289459798/react-native-umshare)项目更改而来，在此基础上更新了友盟的版本，并增加了微博登录功能，非常感谢原作者！
 
+大坑:
+1.下面iOS集成中，两个文件夹拖入是指，打开文件夹，然后拖入，而不是直接在xcode中拖入
+
+2.iOS下面分享的链接显示的是app icon(前面不显示，后面才显示),因为没有ios默认是只支持https的链接的
+
+https://www.jianshu.com/p/b1d62e3004ab
+
+如果需要显示http的图片，需要将
+
+<pre>[UMSocialGlobal shareInstance].isUsingHttpsWhenShareContent = NO;
+</pre>
+
 ### 友盟SDK版本
 
 Android：v6.4.4(精简版)  

@@ -68,7 +68,14 @@ RCT_REMAP_METHOD(share,
             //调用分享接口
             [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:nil completion:^(id data, NSError *error) {
                 if (error) {
-                    reject(@"-1", @"分享失败", error);
+                    if(error.code == 2009)
+                    {
+                        reject(@"-1", @"取消分享",error);
+                    }
+                    else
+                    {
+                        reject(@"-1", @"分享失败", error);
+                    }
                     UMSocialLogInfo(@"************Share fail with error %@*********",error);
                 } else {
                     
@@ -130,7 +137,14 @@ RCT_REMAP_METHOD(shareWithPlatformType,
         
         [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:nil completion:^(id data, NSError *error) {
             if (error) {
-                reject(@"-1", @"分享失败", error);
+                if(error.code == 2009)
+                {
+                   reject(@"0", @"取消分享",error);
+                }
+                else
+                {
+                    reject(@"-1", @"分享失败", error);
+                }
                 UMSocialLogInfo(@"************Share fail with error %@*********",error);
             } else {
                 
@@ -162,7 +176,14 @@ RCT_REMAP_METHOD(shareWithPlatformType,
         
         [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:nil completion:^(id data, NSError *error) {
             if (error) {
-                reject(@"-1", @"分享失败", error);
+                if(error.code == 2009)
+                {
+                    reject(@"0", @"取消分享",error);
+                }
+                else
+                {
+                    reject(@"-1", @"分享失败", error);
+                }
                 UMSocialLogInfo(@"************Share fail with error %@*********",error);
             } else {
                 
@@ -199,7 +220,14 @@ RCT_REMAP_METHOD(shareWithPlatformType,
         
         [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:nil completion:^(id data, NSError *error) {
             if (error) {
-                reject(@"-1", @"分享失败", error);
+                if(error.code == 2009)
+                {
+                    reject(@"-1", @"取消分享",error);
+                }
+                else
+                {
+                    reject(@"-1", @"分享失败", error);
+                }
                 UMSocialLogInfo(@"************Share fail with error %@*********",error);
             } else {
                 
